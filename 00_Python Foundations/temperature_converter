@@ -1,0 +1,99 @@
+######Original#######
+'''
+retry = True
+
+def celsius_to_fahrenheit(celsius):
+    result = (celsius) * (9/5) + 32
+    print(f"Result: {result:.2f} degrees fahrenheit")
+
+def fahrenheit_to_celsius(fahrenheit):
+    result = (fahrenheit - 32) * (5/9)
+    print(f"Result: {result:.2f} degrees celsius")
+
+def try_again():
+    try_again = input("Try again?: Y / N \n").strip().upper()
+    if try_again == "Y":
+        retry = True
+    else:
+        retry = False
+
+while retry:
+    try:
+        user_input = input("Choose conversion: A for Celsius to Fahrenheit, B for Fahrenheit to Celsius: ").strip().upper()
+
+        if user_input == "A":
+            try:
+                celsius = float(input("Enter Temperature in Celsius: "))
+                celsius_to_fahrenheit(celsius)
+            except ValueError:
+                print("Invalid input. Please enter a numeric value for Celsius.")
+                try_again()
+        elif user_input == "B":
+            try:
+                fahrenheit = float(input("Enter Temperature in Fahrenheit: "))
+                fahrenheit_to_celsius(fahrenheit)
+                try_again()
+            except ValueError:
+                print("Invalid input. Please enter a numeric value for Fahrenheit.")
+                try_again()
+        else:
+            print("Invalid choice. Please select 'A' or 'B'.")
+            try_again()
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+'''
+
+######REFACTORED#######
+# Temperature Conversion Program
+# Author: Rhavee
+# Purpose: Convert temperatures between Celsius and Fahrenheit with error handling and retry menu
+
+def celsius_to_fahrenheit(celsius):
+    """Convert Celsius to Fahrenheit and print result."""
+    result = (celsius) * (9/5) + 32
+    print(f"Result: {result:.2f} degrees Fahrenheit")
+
+def fahrenheit_to_celsius(fahrenheit):
+    """Convert Fahrenheit to Celsius and print result."""
+    result = (fahrenheit - 32) * (5/9)
+    print(f"Result: {result:.2f} degrees Celsius")
+
+def main():
+    """Main program loop with menu-driven options."""
+    while True:
+        # Display menu
+        print("\n--- Temperature Conversion Menu ---")
+        print("A: Celsius to Fahrenheit")
+        print("B: Fahrenheit to Celsius")
+        print("Q: Quit")
+
+        # Get user choice
+        user_input = input("Choose an option (A/B/Q): ").strip().upper()
+
+        if user_input == "A":
+            # Celsius to Fahrenheit conversion
+            try:
+                celsius = float(input("Enter Temperature in Celsius: "))
+                celsius_to_fahrenheit(celsius)
+            except ValueError:
+                print("❌ Invalid input. Please enter a numeric value for Celsius.")
+
+        elif user_input == "B":
+            # Fahrenheit to Celsius conversion
+            try:
+                fahrenheit = float(input("Enter Temperature in Fahrenheit: "))
+                fahrenheit_to_celsius(fahrenheit)
+            except ValueError:
+                print("❌ Invalid input. Please enter a numeric value for Fahrenheit.")
+
+        elif user_input == "Q":
+            # Exit program
+            print("👋 Goodbye! Thanks for using the converter.")
+            break
+
+        else:
+            # Invalid menu choice
+            print("❌ Invalid choice. Please select 'A', 'B', or 'Q'.")
+
+if __name__ == "__main__":
+    main()
