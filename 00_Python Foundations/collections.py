@@ -2,7 +2,7 @@
 #List = [] ordered and changable, duplicates - ok
 
 #List = [] ordered and changable, duplicates - ok
-fruits = ["apple", "orange", "banana", "coconut"]
+#fruits = ["apple", "orange", "banana", "coconut"]
 
 #print(fruits)
 #print(fruits[1]) #zero indexed
@@ -51,4 +51,26 @@ fruits = ["apple", "orange", "banana", "coconut"]
 
 
 #Set = {} unordered and immutable, add/remove - ok, no duplicates
+#fruits = {"apple", "orange", "banana", "coconut"}
+
+
+#display attributes and methods
+#print(dir(fruits))
+
+#print lenght/size of the list
+#print(len(fruits))
+
+#check an element in the List
+#print("apple" in fruits)
+
+#fruits.remove("orange")
+#fruits.add("pineapple")
+#fruits.pop()
+#friuts.clear()
+
+#print(fruits)
+
 #Tuple = () ordered and unchangeable, duplicate - ok. faster
+fruits = ("apple", "orange", "banana", "coconut")
+print(dir(fruits))
+print(fruits)
